@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+  labels:
+    app: deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deploy
+  template:
+    metadata:
+      labels:
+        app: deploy
+    spec:
+      containers:
+      - name: webapp
+        image: hello-node:latest
+        # imagePullPolicy: Never
+        ports:
+        - containerPort: 80
