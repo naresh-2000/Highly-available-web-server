@@ -4,6 +4,28 @@ metadata:
   name: my-deployment
   labels:
     app: deploy
+  managedFields:
+    - manager: kubectl-client-side-apply
+      operation: Update
+      apiVersion: apps/v1
+      
+    - manager: node-fetch
+      operation: Update
+      apiVersion: apps/v1
+      
+    - manager: kubectl-rollout
+      operation: Update
+      apiVersion: apps/v1
+      
+    - manager: kubectl
+      operation: Update
+      apiVersion: apps/v1
+      
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+
+  selfLink: /apis/apps/v1/namespaces/default/deployments/my-deployment
 spec:
   replicas: 3
   selector:
@@ -16,7 +38,8 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: 460115791670.dkr.ecr.us-east-1.amazonaws.com/bkbiet-project
+        image: 460115791670.dkr.ecr.us-east-1.amazonaws.com/bkbiet-project:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+      restartPolicy: Always
