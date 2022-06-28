@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: 460115791670.dkr.ecr.us-east-1.amazonaws.com/bkbiet-project:nginx_server
+        image: 460115791670.dkr.ecr.us-east-1.amazonaws.com/bkbiet-project
         imagePullPolicy: Always
         ports:
         - containerPort: 80
